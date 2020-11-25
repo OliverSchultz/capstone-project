@@ -1,3 +1,10 @@
+import Button from "./Button";
+
 export default function Body() {
-	return "Bienvenue monde";
+	return (
+		<div>
+			<h2>Hier könnte keine Werbung stehen</h2>
+			<Button />
+		</div>
+	);
 }
