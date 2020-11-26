@@ -1,9 +1,14 @@
 import styled from "styled-components/macro";
 
-export default function Button() {
-	return <BodyStyled onClick>username</BodyStyled>;
+export default function Button(props) {
+	return <ButtonStyled onClick>{props.name}</ButtonStyled>;
 }
-const BodyStyled = styled.body`
+const ButtonStyled = styled.div`
 	background-color: lightslategray;
-	margin-top: 10em;
+	margin-top: 3em;
+	margin-left: 5em;
+	margin-right: 5em;
+	margin-bottom: 0;
+	padding: 2em;
+	border: 1em;
 `;

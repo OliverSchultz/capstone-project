@@ -1,13 +1,14 @@
 import styled from "styled-components/macro";
 
 const Header = () => (
-	<h1>
-		<HeaderStyled>Willkommen zu Freitags-Fussi (miau!)</HeaderStyled>
-	</h1>
+	<HeaderStyled>
+		<h1>Willkommen zu Freitags-Fussi</h1>
+	</HeaderStyled>
 );
 export default Header;
 
 const HeaderStyled = styled.header`
-	color: blue;
-	background-color: lightslategray;
+	padding: 1em;
+	background-color: #a6dff5f2;
+	margin: 0;
 `;
