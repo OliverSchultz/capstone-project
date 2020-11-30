@@ -1,5 +1,6 @@
+//import Header from "./components/Header";
+import { useState } from "react";
 import Button from "./Button";
-import CreateAccount from "./src/pages/CreateAccount";
 
 export default function Body() {
 	return (
@@ -9,7 +10,6 @@ export default function Body() {
 				<Button name="password" />
 				<Button name="register" />
 			</button>
-			<CreateAccount />
 		</>
 	);
 }

@@ -19,7 +19,7 @@ export default function Footer() {
 const FooterNavigation = styled.nav`
 	display: flex;
 	background-color: #a6dff5f2;
-	position: fixed;
+	//position: fixed;
 	padding: 1em;
 	width: 100%;
 	bottom: 0px;
