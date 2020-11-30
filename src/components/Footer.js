@@ -17,6 +17,7 @@ export default function Footer() {
 	);
 }
 const FooterNavigation = styled.nav`
+	display: flex;
 	background-color: #a6dff5f2;
 	position: fixed;
 	padding: 1em;
