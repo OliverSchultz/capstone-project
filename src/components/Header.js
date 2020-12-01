@@ -8,7 +8,7 @@ const Header = () => (
 export default Header;
 
 const HeaderStyled = styled.header`
-	padding: 1em;
+	padding: 0.8rem;
 	background-color: #a6dff5f2;
 	margin: 0;
 `;

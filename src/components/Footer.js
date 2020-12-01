@@ -1,3 +1,5 @@
+/* der Footer braucht eine clickable Navigation, in der das aktuelle Tab markiert sein muss. 
+Geil wäre die Anzeige der 4 wichtigsten Tabs und die Möglichkeit, über "..." weitere Tabs zu sehen (utopisch)*/
 import styled from "styled-components/macro";
 
 export default function Footer() {
@@ -17,9 +19,7 @@ export default function Footer() {
 	);
 }
 const FooterNavigation = styled.nav`
-	display: flex;
 	background-color: #a6dff5f2;
-	//position: fixed;
 	padding: 1em;
 	width: 100%;
 	bottom: 0px;

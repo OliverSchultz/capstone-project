@@ -1,3 +1,5 @@
+/*ich brauche verschiedene Buttons: back, login, register, etc*/
+
 import styled from "styled-components/macro";
 
 export default function Button(props) {
@@ -11,11 +13,10 @@ export default function Button(props) {
 // }
 
 const ButtonStyled = styled.button`
+	display: flex;
+	flex-direction: column;
 	background-color: lightslategray;
-	margin-top: 3em;
-	margin-left: 5em;
-	margin-right: 5em;
-	margin-bottom: 0;
 	padding: 2em;
-	border: 1em;
+	border: 2px solid black;
+	border-radius: 10px;
 `;

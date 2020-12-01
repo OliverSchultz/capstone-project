@@ -1,15 +1,22 @@
-//import Header from "./components/Header";
-import { useState } from "react";
+import styled from "styled-components";
 import Button from "./Button";
 
 export default function Body() {
 	return (
 		<>
-			<button>
+			<Form>
 				<Button name="username" />
 				<Button name="password" />
 				<Button name="register" />
-			</button>
+			</Form>
 		</>
 	);
 }
+
+const Form = styled.form`
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+`;

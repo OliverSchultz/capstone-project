@@ -1,4 +1,5 @@
 import { useState } from "react";
+//hier muss der Enter-Button aus der registrierung importiert werden
 
 export default function JoinNextMatch() {
 	const [participants, setParticipant] = useState([
