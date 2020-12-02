@@ -1,16 +1,17 @@
 import { useState } from "react";
+import PlayerForm from "./PlayerForm";
 //hier muss der Enter-Button aus der registrierung importiert werden
 
 export default function JoinNextMatch() {
 	const [participants, setParticipant] = useState([
-		{
+		/*{
 			player: "Schluckusspechtus",
 			join: true,
 		},
 		{
 			player: "Il Colosso",
 			join: true,
-		},
+		},*/
 	]);
 	// addNewButtonToParticipantsArray
 	function addParticipant(participant) {
@@ -44,6 +45,7 @@ export default function JoinNextMatch() {
 			>
 				DieserButtonMussDieEnterTasteImRegistrierungsFormularWerden
 			</button>
+			<PlayerForm onSubmit={addParticipant} />
 		</>
 	);
 }

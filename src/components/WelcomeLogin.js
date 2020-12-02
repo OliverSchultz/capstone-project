@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import Button from "./Button";
 
-export default function Body() {
+export default function Login() {
 	return (
 		<>
 			<Form>
-				<Button name="username" />
-				<Button name="password" />
+				<input type="text" placeholder="please enter your username" />
+				<Button name="enter" />
+				<input type="text" placeholder="please enter your password" />
+				<Button name="enter" />
+				<label>noch nicht registriert?</label>
 				<Button name="register" />
 			</Form>
 		</>
