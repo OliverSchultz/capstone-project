@@ -22,7 +22,7 @@ export default function JoinNextMatch() {
 		<>
 			<p>
 				Hier erscheinen die registrierten Teilnehmer und daneben ein
-				Anmelde-Button:
+				active/inactive-Button:
 			</p>
 			<ul>
 				{participants.map((participant) => {

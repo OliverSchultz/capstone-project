@@ -4,6 +4,7 @@ import Header from "./Header";
 import WelcomeLogin from "./WelcomeLogin";
 import JoinNextMatch from "./JoinNextMatch";
 import PlayerCount from "./PlayerCount";
+import RegisterForm from "./RegisterForm";
 
 function App() {
 	return (
@@ -11,6 +12,7 @@ function App() {
 			<GlobalStyle />
 			<Header />
 			<WelcomeLogin />
+			<RegisterForm />
 			<JoinNextMatch />
 			<PlayerCount />
 			<Footer />
