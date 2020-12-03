@@ -15,8 +15,8 @@ export default function Button(props) {
 const ButtonStyled = styled.button`
 	display: flex;
 	flex-direction: column;
-	background-color: greenyellow;
-	padding: 2em;
+	background-color: #b4d4e0;
+	padding: 1em;
 	border: 2px solid black;
 	border-radius: 10px;
 `;

@@ -5,10 +5,9 @@ export default function Login() {
 	return (
 		<>
 			<Form>
-				<input type="text" placeholder="please enter your username" />
-				<Button name="enter" />
-				<input type="text" placeholder="please enter your password" />
-				<Button name="enter" />
+				<h3>pleaze, bebe, pleaze login</h3>
+				<input type="text" placeholder="enter username"></input>
+				<input type="text" placeholder="enter password"></input>
 				<label>noch nicht registriert?</label>
 				<Button name="register" />
 			</Form>

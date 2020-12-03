@@ -1,2 +1,3 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+const JerseyColor = () => {
+	return <h3>select a jersey color</h3>;
+};

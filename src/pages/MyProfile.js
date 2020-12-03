@@ -1,6 +1,5 @@
-/*import Footer from "./components/Footer";
-import Header from "./components/Header";*/
+const MyProfile = () => {
+	return <h3>my profile = username</h3>;
+};
 
-export default function MyProfile() {
-	return "Huhu";
-}
+export default MyProfile();
