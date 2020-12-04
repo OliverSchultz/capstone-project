@@ -7,21 +7,20 @@ export default function PlayerForm({ onSubmit }) {
 	const [participate, setParticipate] = useState(true);
 
 	function onFormSubmit(event) {
-		{
-			/*Das event on Submit wird übergeben */
-		}
+		/*Das event on Submit wird übergeben */
+
 		event.preventDefault();
-		{
-			/*Bei der Übergabe des Events muss der default verhindert werden, der in der URL den get-Parameter hinzufügt und die Seite neu lädt */
-		}
+
+		/*Bei der Übergabe des Events muss der default verhindert werden, der in der URL den get-Parameter hinzufügt und die Seite neu lädt */
+
 		onSubmit({
 			player: player,
 			participate: true,
 		});
 	}
-	{
-		/*die folgende Funktion sorgt für die Ausführung eines Events */
-	}
+
+	/*die folgende Funktion sorgt für die Ausführung eines Events */
+
 	function onPlayerChange(event) {
 		setPlayer(event.target.value);
 	}

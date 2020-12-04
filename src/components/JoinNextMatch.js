@@ -1,8 +1,11 @@
 import { useState } from "react";
 import PlayerForm from "./PlayerForm";
+import Header from "./Header";
+
 //hier muss der Enter-Button aus der registrierung importiert werden
 
 export default function JoinNextMatch() {
+	const pageHeader = "Anmeldung für das Pampelmusen-Event am: xx.xx.xx";
 	const [participants, setParticipant] = useState([
 		/*{
 			player: "Schluckusspechtus",
@@ -20,6 +23,7 @@ export default function JoinNextMatch() {
 
 	return (
 		<>
+			<Header datatransport={pageHeader} />
 			<p>
 				Hier erscheinen die registrierten Teilnehmer und daneben ein
 				active/inactive-Button:

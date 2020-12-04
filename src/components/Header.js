@@ -1,8 +1,8 @@
 import styled from "styled-components/macro";
 
-const Header = () => (
+const Header = (props) => (
 	<HeaderStyled>
-		<h1>Willkommen zur Pampelmuse</h1>
+		<h2> {props.datatransport}</h2>
 	</HeaderStyled>
 );
 export default Header;

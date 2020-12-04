@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import Button from "./Button";
+import Header from "./Header";
 
 export default function Login() {
+	const pageHeader = "Willkommen zur Pampelmuse";
 	return (
 		<>
+			<Header datatransport={pageHeader} />
 			<Form>
 				<h3>pleaze, bebe, pleaze login</h3>
 				<input type="text" placeholder="enter username"></input>
