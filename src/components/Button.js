@@ -16,7 +16,7 @@ const ButtonStyled = styled.button`
 	display: flex;
 	flex-direction: column;
 	background-color: #b4d4e0;
-	padding: 1em;
+	padding: 0.8em;
 	border: 2px solid black;
 	border-radius: 10px;
 `;
