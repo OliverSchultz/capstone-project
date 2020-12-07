@@ -3,15 +3,17 @@ import Button from "./Button";
 import Header from "./Header";
 
 export default function Login() {
-	const pageHeader = "Willkommen zur Pampelmuse";
+	const pageHeader = "Willkommen zum Freitagsfußball";
 	return (
 		<>
 			<Header datatransport={pageHeader} />
 			<Form>
-				<h3>pleaze, bebe, pleaze login</h3>
-				<input type="text" placeholder="enter username"></input>
+				<label>
+					pleaze, bebe, pleaze login
+					<input type="text" placeholder="enter username"></input>
+				</label>
 				<input type="text" placeholder="enter password"></input>
-				<label>noch nicht registriert?</label>
+				<i>noch nicht registriert?</i>
 				<Button name="register" />
 			</Form>
 		</>

@@ -4,7 +4,6 @@ import { useState } from "react";
 
 export default function PlayerForm({ onSubmit }) {
 	const [player, setPlayer] = useState("player");
-	const [participate, setParticipate] = useState(true);
 
 	function onFormSubmit(event) {
 		/*Das event on Submit wird übergeben */
@@ -25,20 +24,12 @@ export default function PlayerForm({ onSubmit }) {
 		setPlayer(event.target.value);
 	}
 
-	function onParticipateChange(event) {
-		setParticipate(event.target.value);
-	}
 	return (
 		<>
 			<p>Hier erscheint eine Teilnehmerliste</p>
 			<form onSubmit={onFormSubmit}>
 				{/*hier kommt das onSubmit aus der function in Zeile 3*/}
 				<input name="player" value={player} onChange={onPlayerChange} />
-				<input
-					name="participate"
-					value={participate}
-					onChange={onParticipateChange}
-				/>
 				<button type="submit">Speichern</button>
 			</form>
 		</>

@@ -1,105 +1,30 @@
+import { useState } from "react";
 import GlobalStyle from "../styles/GlobalStyles";
-import Footer from "./Footer";
+import Navigation from "./Navigation";
 import Header from "./Header";
 import WelcomeLogin from "./WelcomeLogin";
 import JoinNextMatch from "./JoinNextMatch";
 import PlayerCount from "./PlayerCount";
-import CreateAccount from "../pages/CreateAccount";
 
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link,
-	useRouteMatch,
-	useParams,
-} from "react-router-dom";
+import CreateAccount from "../Pages/CreateAccount";
+import Beer from "../Pages/Beer";
+import MyProfile from "../Pages/MyProfile";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function App() {
+	const [numberOfParticipants, setNumberOfParticipants] = useState(0);
 	return (
-		<>
-			<GlobalStyle />
-			<Header />
-			<WelcomeLogin />
-			<CreateAccount />
-			<JoinNextMatch />
-			<PlayerCount />
-			<Footer />
-			<Router>
-				<div>
-					<ul>
-						<li>
-							<Link to="/">Home</Link>
-						</li>
-						<li>
-							<Link to="/about">About</Link>
-						</li>
-						<li>
-							<Link to="/topics">Topics</Link>
-						</li>
-						<li>
-							<Link to="/topics">pampelmuse</Link>
-						</li>
-					</ul>
-
-					<Switch>
-						<Route path="/about">
-							<About />
-						</Route>
-						<Route path="/topics">
-							<Topics />
-						</Route>
-						<Route path="/">
-							<Home />
-						</Route>
-					</Switch>
-				</div>
-			</Router>
-		</>
+		<Router>
+			<div>
+				<GlobalStyle />
+				<Navigation />
+				<Switch>
+					<Route path="/welcomeLogin" component={WelcomeLogin} />
+					<Route path="/beer" component={Beer} />
+					<Route path="/joinNextMatch" component={JoinNextMatch} />
+				</Switch>
+			</div>
+		</Router>
 	);
-}
-
-function Home() {
-	return <h2>Home</h2>;
-}
-
-function About() {
-	return <h2>About</h2>;
-}
-
-function Topics() {
-	let match = useRouteMatch();
-
-	return (
-		<div>
-			<h2>Topics</h2>
-
-			<ul>
-				<li>
-					<Link to={`${match.url}/components`}>Components</Link>
-				</li>
-				<li>
-					<Link to={`${match.url}/props-v-state`}>Props v. State</Link>
-				</li>
-			</ul>
-
-			{/* The Topics page has its own <Switch> with more routes
-          that build on the /topics URL path. You can think of the
-          2nd <Route> here as an "index" page for all topics, or
-          the page that is shown when no topic is selected */}
-			<Switch>
-				<Route path={`${match.path}/:topicId`}>
-					<Topic />
-				</Route>
-				<Route path={match.path}>
-					<h3>Please select a topic.</h3>
-				</Route>
-			</Switch>
-		</div>
-	);
-}
-
-function Topic() {
-	let { topicId } = useParams();
-	return <h3>Requested topic ID: {topicId}</h3>;
 }

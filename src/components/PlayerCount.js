@@ -1,12 +1,5 @@
-import { useState } from "react";
-
-export default function PlayerCount() {
-	const [count, setCount] = useState(0);
-
-	const increment = () => {
-		setCount(count + 1);
-	};
-	return <p>Wir werden {increment} Spieler.</p>;
+export default function PlayerCount({ numberOfParticipants }) {
+	return <p>Wir werden {numberOfParticipants} Spieler.</p>;
 }
 
 /*bei weniger als 6 Spielern möge die Spielerzahl rot angezeigt werden,
