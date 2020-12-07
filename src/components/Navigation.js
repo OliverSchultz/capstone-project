@@ -8,11 +8,14 @@ export default function Navigation() {
 		<>
 			<StyledNavigation>
 				<ul>
+					<Link to="/home">
+						<li>Home</li>
+					</Link>
 					<Link to="/back">
 						<li>back</li>
 					</Link>
 					<Link to="/welcomeLogin">
-						<li>Home</li>
+						<li>Login</li>
 					</Link>
 					<Link to="/joinNextMatch">
 						<li>next match</li>

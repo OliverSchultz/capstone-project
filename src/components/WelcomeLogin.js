@@ -8,10 +8,8 @@ export default function Login() {
 		<>
 			<Header datatransport={pageHeader} />
 			<Form>
-				<label>
-					pleaze, bebe, pleaze login
-					<input type="text" placeholder="enter username"></input>
-				</label>
+				<label>pleaze, bebe, pleaze login</label>
+				<input type="text" placeholder="enter username"></input>
 				<input type="text" placeholder="enter password"></input>
 				<i>noch nicht registriert?</i>
 				<Button name="register" />
@@ -21,7 +19,7 @@ export default function Login() {
 }
 
 const Form = styled.form`
-	height: 300px;
+	height: 500px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
