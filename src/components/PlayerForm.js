@@ -1,5 +1,3 @@
-// hier erscheinen die Teilnehmer in einer Liste
-
 import { useState } from "react";
 
 export default function PlayerForm({ onSubmit }) {
@@ -17,7 +15,6 @@ export default function PlayerForm({ onSubmit }) {
 			participate: true,
 		});
 	}
-
 	/*die folgende Funktion sorgt für die Ausführung eines Events */
 
 	function onPlayerChange(event) {

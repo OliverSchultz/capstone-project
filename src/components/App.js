@@ -1,12 +1,10 @@
 import { useState } from "react";
 import GlobalStyle from "../styles/GlobalStyles";
 import Navigation from "./Navigation";
-import Header from "./Header";
 import Home from "../Pages/Home";
 import WelcomeLogin from "./WelcomeLogin";
 import JoinNextMatch from "./JoinNextMatch";
 //import PlayerCount from "./PlayerCount";
-
 //import CreateAccount from "../Pages/CreateAccount";
 import Beer from "../Pages/Beer";
 //import MyProfile from "../Pages/MyProfile";
@@ -25,10 +23,19 @@ export default function App() {
 						<Route path="/home" component={Home} />
 						<Route path="/welcomeLogin" component={WelcomeLogin} />
 						<Route path="/beer" component={Beer} />
-						<Route path="/joinNextMatch" component={JoinNextMatch} />
+						<Route
+							path="/joinNextMatch"
+							component={JoinNextMatch}
+							onAddParticipant={handleAddParticipant}
+						/>
 					</Switch>
 				</div>
 			</Router>
 		</>
 	);
+
+	function handleAddParticipant(numberOfParticipants) {
+		setNumberOfParticipants(numberOfParticipants);
+	}
 }
+//<PlayerCount numberOfParticipants={numberOfParticipants} />;

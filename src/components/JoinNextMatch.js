@@ -3,7 +3,7 @@ import PlayerForm from "./PlayerForm";
 import Header from "./Header";
 
 export default function JoinNextMatch({ onAddParticipant }) {
-	const pageHeader = "Anmeldung für das Pampelmusen-Event am: xx.xx.xx";
+	const pageHeader = "Anmeldung für den: xx.xx.xx";
 	const [participants, setParticipant] = useState([]);
 
 	function addParticipant(participant) {
