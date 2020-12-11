@@ -5,7 +5,7 @@ import styled from "styled-components/macro";
 export default function Home() {
 	return (
 		<div>
-			<h3>the day after covid</h3>
+			<h3>Liebe Athleten, willkommen zurück nach Goofy19-Pause</h3>
 			<img src={fatPlayer} alt="fat players" width="400" />
 			<NavBox>
 				<Link to="/login">

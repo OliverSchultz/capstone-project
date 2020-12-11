@@ -13,6 +13,7 @@ const ButtonStyled = styled.button`
 	border: 2px solid black;
 	border-radius: 10px;
 	box-shadow: 0px, 10px, 5px, lightgray;
+	color: white;
 	cursor: pointer;
 	display: flex;
 	flex-direction: column;
@@ -20,6 +21,6 @@ const ButtonStyled = styled.button`
 	padding: 0.8em;
 	transition: ease background-color 500ms;
 	&:hover {
-		background-color: yellowgreen;
+		background-color: #283593;
 	}
 `;

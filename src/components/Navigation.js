@@ -9,6 +9,9 @@ export default function Navigation() {
 					<Link to="/home">
 						<li>Home</li>
 					</Link>
+					<Link to="/login">
+						<li>Login New</li>
+					</Link>
 					<Link to="/welcomeLogin">
 						<li>Login</li>
 					</Link>

@@ -1,14 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PlayerForm from "./PlayerForm";
 import Header from "./Header";
+import UpcomingMatchday, { upcomingMatchdayToISOString } from "./Date";
+import saveLocally from "./lib/saveLocally";
+import loadLocally from "./lib/loadLocally";
+import PlayerCount from "./PlayerCount";
 
-export default function JoinNextMatch({ onAddParticipant }) {
-	const pageHeader = "Anmeldung für den: xx.xx.xx";
-	const [participants, setParticipant] = useState([]);
+export default function JoinNextMatch() {
+	let pageHeader = "Anmeldung für den: ";
 
+	// Der nächste Freitag
+	const upcomingMatchday = upcomingMatchdayToISOString();
+
+	// Der initiale Zustand der Spielerliste ist entweder a) eine bestehende Liste aus LocalStorage oder b) ein leeres Array
+	const [participants, setParticipant] = useState(
+		loadLocally(upcomingMatchday) || []
+	);
+
+	// Seiteneffekt: Speichere in LocalStorage, wenn sich die Liste der Partizipanten ändert
+	useEffect(() => {
+		saveLocally(upcomingMatchday, participants);
+	}, [participants, upcomingMatchday]);
+
+	// Fügt einen neuen Spieler hinzu
 	function addParticipant(participant) {
 		setParticipant([...participants, participant]);
-		onAddParticipant(participants.length + 1);
 	}
 
 	function AddRadioButton({ playerNumber }) {
@@ -46,7 +62,14 @@ export default function JoinNextMatch({ onAddParticipant }) {
 
 	return (
 		<>
-			<Header datatransport={pageHeader} />
+			<div>
+				<Header datatransport={pageHeader} />
+				<UpcomingMatchday />
+			</div>
+
+			<PlayerForm onSubmit={addParticipant} />
+
+			<PlayerCount numberOfParticipants={participants.length} />
 
 			<ul>
 				{participants.map((participant, index) => {
@@ -60,8 +83,13 @@ export default function JoinNextMatch({ onAddParticipant }) {
 					);
 				})}
 			</ul>
-			{/* Dieser Button muss mit dem Register-Button verknüpft werden oder besser mit der erfolgreich abgeschlossenen Registrierung*/}
-			{/*			<button
+		</>
+	);
+}
+
+/* Dieser Button muss mit dem Register-Button verknüpft werden oder besser mit der erfolgreich abgeschlossenen Registrierung*/
+
+/*			<button
 				onClick={() => {
 					addParticipant({
 						player: "Schluckusspechtus",
@@ -69,9 +97,4 @@ export default function JoinNextMatch({ onAddParticipant }) {
 				}}
 			>
 				<label>an /ab</label>
-			</button>*/}
-
-			<PlayerForm onSubmit={addParticipant} />
-		</>
-	);
-}
+			</button>*/
