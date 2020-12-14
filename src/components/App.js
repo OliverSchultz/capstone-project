@@ -1,15 +1,15 @@
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import GlobalStyle from "../styles/GlobalStyles";
+
 import Navigation from "./Navigation";
-import Home from "../Pages/Home";
 import WelcomeLogin from "./WelcomeLogin";
 import JoinNextMatch from "./JoinNextMatch";
 import Login from "./Login";
-//import CreateAccount from "../Pages/CreateAccount";
-import Beer from "../Pages/Beer";
-//import MyProfile from "../Pages/MyProfile";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import CirclePicker from "./ColorPicker";
+import Home from "../Pages/Home";
+import ChooseColor from "../Pages/ChooseColour";
+import Beer from "../Pages/Beer";
 
 export default function App() {
 	return (
@@ -26,7 +26,7 @@ export default function App() {
 							<Beer icon="🍺" />
 						</Route>
 						<Route path="/joinNextMatch" component={JoinNextMatch} />
-						<Route path="/ChooseColor" component={CirclePicker} />
+						<Route path="/chooseColour" component={ChooseColor} />
 					</Switch>
 				</div>
 			</Router>

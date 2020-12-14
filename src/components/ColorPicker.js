@@ -1,10 +1,15 @@
 import { CompactPicker } from "react-color";
 import { useState } from "react";
+import { upcomingMatchdayToISOString } from "./Date";
+import loadLocally from "./lib/loadLocally";
 
 export default function ColorPicker() {
 	const [color, setColor] = useState("#fff");
 	const [showCirclePicker, setShowCirclePicker] = useState(false);
 
+	const nextFriday = upcomingMatchdayToISOString();
+	const participants = loadLocally(nextFriday);
+	console.log(participants);
 	return (
 		<>
 			<button
@@ -12,7 +17,7 @@ export default function ColorPicker() {
 					setShowCirclePicker((showCirclePicker) => !showCirclePicker)
 				}
 			>
-				{showCirclePicker ? "close compact picker" : "choose a color"}
+				{showCirclePicker ? "close picker" : "choose a color"}
 			</button>
 			{showCirclePicker && (
 				<CompactPicker

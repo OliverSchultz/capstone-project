@@ -28,38 +28,59 @@ export default function JoinNextMatch() {
 		setParticipant([...participants, participant]);
 	}
 
-	function AddRadioButton({ playerNumber }) {
+	function calculatePlayerAttendance(participants) {
+		const playersAttending = participants.filter(
+			(participant) => participant.participate === "yes"
+		);
+		return playersAttending.length;
+	}
+
+	function AddRadioButton({ playerNumber, player }) {
 		const handleChange = (event) => {
-			console.log(event.target.value, event.target.name);
+			const participantsUpdated = participants.map((participant, index) => {
+				if (index === playerNumber) {
+					participant.participate = event.target.value;
+				}
+				return participant;
+			});
+
+			setParticipant(participantsUpdated);
 		};
 		return (
 			<>
 				<form>
-					<div>
-						<Input
+					<label>
+						<input
 							type="radio"
 							value="no"
 							name={`radiobutton[${playerNumber}]`}
 							onChange={handleChange}
-						></Input>
-						<label htmlFor="no">no</label>
-					</div>
+							checked={player.participate === "no"}
+						></input>
+						no
+					</label>
 
-					<input
-						type="radio"
-						value="maybe"
-						name={`radiobutton[${playerNumber}]`}
-						onChange={handleChange}
-					></input>
-					<label htmlFor="maybe">maybe</label>
+					<label>
+						<input
+							type="radio"
+							value="maybe"
+							name={`radiobutton[${playerNumber}]`}
+							onChange={handleChange}
+							checked={player.participate === "maybe"}
+						></input>
+						weißichnicht
+					</label>
 
-					<input
-						type="radio"
-						value="yes"
-						name={`radiobutton[${playerNumber}]`}
-						onChange={handleChange}
-					></input>
-					<label htmlFor="yes">yes</label>
+					<label>
+						<input
+							type="radio"
+							value="yes"
+							name={`radiobutton[${playerNumber}]`}
+							onChange={handleChange}
+							checked={player.participate === "yes"}
+						></input>
+						yes
+					</label>
 				</form>
 			</>
 		);
@@ -74,7 +95,9 @@ export default function JoinNextMatch() {
 
 			<PlayerForm onSubmit={addParticipant} />
 
-			<PlayerCount numberOfParticipants={participants.length} />
+			<PlayerCount
+				numberOfParticipants={calculatePlayerAttendance(participants)}
+			/>
 
 			<ul>
 				{participants.map((participant, index) => {
@@ -82,7 +105,7 @@ export default function JoinNextMatch() {
 						<Li key={index}>
 							<h4>{participant.player}</h4>
 							<div>
-								<AddRadioButton playerNumber={index} />
+								<AddRadioButton playerNumber={index} player={participant} />
 							</div>
 						</Li>
 					);
@@ -94,7 +117,4 @@ export default function JoinNextMatch() {
 
 const Li = styled.li`
 	list-style-type: none;
-`;
-const Input = styled.input`
-	background-color: red;
 `;

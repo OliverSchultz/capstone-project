@@ -18,11 +18,12 @@ export default function Navigation() {
 					<Link to="/joinNextMatch">
 						<li>next match</li>
 					</Link>
-					<Link to="/myProfile">
-						<li>my Profile</li>
-					</Link>
+
 					<Link to="/beer">
 						<li>Beer</li>
+					</Link>
+					<Link to="/chooseColour">
+						<li>Trikotwahl</li>
 					</Link>
 				</ul>
 			</StyledNavigation>

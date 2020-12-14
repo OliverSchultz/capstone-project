@@ -13,7 +13,7 @@ export default function PlayerForm({ onSubmit }) {
 		// Elternelement wird über den neuen Partizipanten informiert
 		onSubmit({
 			player: player,
-			participate: true,
+			participate: "maybe",
 		});
 
 		// Nach dem Absenden den Namen aus dem State und damit auch aus dem Eingabefeld löschen
