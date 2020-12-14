@@ -27,7 +27,7 @@ export default function PlayerForm({ onSubmit }) {
 
 	return (
 		<>
-			<p>Hier erscheint eine Teilnehmerliste</p>
+			<p>Bitte trag dich für den nächsten Termin hier ein:</p>
 			<form onSubmit={onFormSubmit}>
 				{/*hier kommt das onSubmit aus der function in Zeile 3*/}
 				<input name="player" value={player} onChange={onPlayerChange} />

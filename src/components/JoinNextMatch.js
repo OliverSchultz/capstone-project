@@ -5,6 +5,7 @@ import UpcomingMatchday, { upcomingMatchdayToISOString } from "./Date";
 import saveLocally from "./lib/saveLocally";
 import loadLocally from "./lib/loadLocally";
 import PlayerCount from "./PlayerCount";
+import styled from "styled-components/macro";
 
 export default function JoinNextMatch() {
 	let pageHeader = "Anmeldung für den: ";
@@ -34,20 +35,16 @@ export default function JoinNextMatch() {
 		return (
 			<>
 				<form>
-					<input
-						type="radio"
-						value="yes"
-						name={`radiobutton[${playerNumber}]`}
-						onChange={handleChange}
-					></input>
-					<label htmlFor="yes">yes</label>
-					<input
-						type="radio"
-						value="no"
-						name={`radiobutton[${playerNumber}]`}
-						onChange={handleChange}
-					></input>
-					<label htmlFor="no">no</label>
+					<div>
+						<Input
+							type="radio"
+							value="no"
+							name={`radiobutton[${playerNumber}]`}
+							onChange={handleChange}
+						></Input>
+						<label htmlFor="no">no</label>
+					</div>
+
 					<input
 						type="radio"
 						value="maybe"
@@ -55,6 +52,14 @@ export default function JoinNextMatch() {
 						onChange={handleChange}
 					></input>
 					<label htmlFor="maybe">maybe</label>
+
+					<input
+						type="radio"
+						value="yes"
+						name={`radiobutton[${playerNumber}]`}
+						onChange={handleChange}
+					></input>
+					<label htmlFor="yes">yes</label>
 				</form>
 			</>
 		);
@@ -74,12 +79,12 @@ export default function JoinNextMatch() {
 			<ul>
 				{participants.map((participant, index) => {
 					return (
-						<li key={index}>
+						<Li key={index}>
 							<h4>{participant.player}</h4>
 							<div>
 								<AddRadioButton playerNumber={index} />
 							</div>
-						</li>
+						</Li>
 					);
 				})}
 			</ul>
@@ -87,14 +92,9 @@ export default function JoinNextMatch() {
 	);
 }
 
-/* Dieser Button muss mit dem Register-Button verknüpft werden oder besser mit der erfolgreich abgeschlossenen Registrierung*/
-
-/*			<button
-				onClick={() => {
-					addParticipant({
-						player: "Schluckusspechtus",
-					});
-				}}
-			>
-				<label>an /ab</label>
-			</button>*/
+const Li = styled.li`
+	list-style-type: none;
+`;
+const Input = styled.input`
+	background-color: red;
+`;

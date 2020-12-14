@@ -9,6 +9,7 @@ import Beer from "../Pages/Beer";
 //import MyProfile from "../Pages/MyProfile";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import CirclePicker from "./ColorPicker";
 
 export default function App() {
 	return (
@@ -25,6 +26,7 @@ export default function App() {
 							<Beer icon="🍺" />
 						</Route>
 						<Route path="/joinNextMatch" component={JoinNextMatch} />
+						<Route path="/ChooseColor" component={CirclePicker} />
 					</Switch>
 				</div>
 			</Router>
