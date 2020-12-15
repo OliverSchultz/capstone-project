@@ -3,13 +3,9 @@ import { useState } from "react";
 import { upcomingMatchdayToISOString } from "./Date";
 import loadLocally from "./lib/loadLocally";
 
-export default function ColorPicker() {
-	const [color, setColor] = useState("#fff");
+export default function ColorPicker({ color, updateColor }) {
 	const [showCirclePicker, setShowCirclePicker] = useState(false);
 
-	const nextFriday = upcomingMatchdayToISOString();
-	const participants = loadLocally(nextFriday);
-	console.log(participants);
 	return (
 		<>
 			<button
@@ -22,10 +18,13 @@ export default function ColorPicker() {
 			{showCirclePicker && (
 				<CompactPicker
 					color={color}
-					onChange={(updatedColor) => setColor(updatedColor.hex)}
+					onChange={(updatedColor) => updateColor(updatedColor.hex)}
 				/>
 			)}
-			<h2>Du hast {color} ausgewählt</h2>
+			<p>
+				Du hast <span style={{ backgroundColor: color }}>{color}</span>{" "}
+				ausgewählt
+			</p>
 		</>
 	);
 }

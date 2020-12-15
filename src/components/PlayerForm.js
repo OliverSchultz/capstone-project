@@ -14,6 +14,7 @@ export default function PlayerForm({ onSubmit }) {
 		onSubmit({
 			player: player,
 			participate: "maybe",
+			color: "",
 		});
 
 		// Nach dem Absenden den Namen aus dem State und damit auch aus dem Eingabefeld löschen

@@ -9,12 +9,11 @@ import styled from "styled-components/macro";
 
 export default function JoinNextMatch() {
 	let pageHeader = "Anmeldung für den: ";
-
 	// Der nächste Freitag
 	const upcomingMatchday = upcomingMatchdayToISOString();
 
 	// Der initiale Zustand der Spielerliste ist entweder a) eine bestehende Liste aus LocalStorage oder b) ein leeres Array
-	const [participants, setParticipant] = useState(
+	const [participants, setParticipants] = useState(
 		loadLocally(upcomingMatchday) || []
 	);
 
@@ -25,7 +24,7 @@ export default function JoinNextMatch() {
 
 	// Fügt einen neuen Spieler hinzu
 	function addParticipant(participant) {
-		setParticipant([...participants, participant]);
+		setParticipants([...participants, participant]);
 	}
 
 	function calculatePlayerAttendance(participants) {
@@ -44,7 +43,7 @@ export default function JoinNextMatch() {
 				return participant;
 			});
 
-			setParticipant(participantsUpdated);
+			setParticipants(participantsUpdated);
 		};
 		return (
 			<>
@@ -57,7 +56,7 @@ export default function JoinNextMatch() {
 							onChange={handleChange}
 							checked={player.participate === "no"}
 						></input>
-						no
+						ich fahre lieber nackt U-Bahn
 					</label>
 
 					<label>
@@ -68,7 +67,7 @@ export default function JoinNextMatch() {
 							onChange={handleChange}
 							checked={player.participate === "maybe"}
 						></input>
-						weißichnicht
+						unklar
 					</label>
 
 					<label>
@@ -79,7 +78,7 @@ export default function JoinNextMatch() {
 							onChange={handleChange}
 							checked={player.participate === "yes"}
 						></input>
-						yes
+						bin dabei!
 					</label>
 				</form>
 			</>
