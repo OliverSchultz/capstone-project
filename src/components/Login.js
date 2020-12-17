@@ -1,46 +1,23 @@
-import { useState } from "react";
-//import { useHistory } from "react-router-dom";
-//import saveLocally from "../../lib/saveLocally";
-import styled from "styled-components/macro";
+import styled from "styled-components";
+import Button from "./Button";
+import Header from "./Header";
 
 export default function Login() {
-	const [loginData, setLoginData] = useState({
-		email: "",
-		password: "",
-	});
-	//const history = useHistory();
+	const pageHeader = "Login";
+
 	return (
 		<>
-			<FormStyled action="/home">
-				<label htmlFor="email" />
-				<input
-					type="email"
-					name="email"
-					placeholder="Email"
-					onChange={onChange}
-					value={loginData.email}
-				/>
-				<label htmlFor="password" />
-				<input
-					type="password"
-					name="password"
-					placeholder="Password"
-					onChange={onChange}
-					value={loginData.password}
-				/>
+			<Header datatransport={pageHeader} />
+			<FormStyled>
+				<input type="text" placeholder="enter username"></input>
+				<input type="text" placeholder="enter password"></input>
+				<i>noch nicht registriert?</i>
+				<Button name="register" />
 			</FormStyled>
 		</>
 	);
-	function onChange(event) {
-		setLoginData({
-			...loginData,
-			[event.target.name]: event.target.value,
-		});
-	}
-	function loginUser(event) {
-		event.preventDefault();
-	}
 }
+
 const FormStyled = styled.form`
 	margin: 2em;
 	padding: 4.5em 2em 3.6em;

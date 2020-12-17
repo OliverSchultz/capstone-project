@@ -1,18 +1,20 @@
-import fatPlayer from "../pictures/Welcome.jpeg";
+import fatPlayer from "../pictures/dick.jpeg";
 import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
+import Header from "../components/Header";
+import Button from "../components/Button";
 
 export default function Home() {
+	const Headername = "Frorga: die Freitagsfusi-Orga-App";
 	return (
 		<div>
-			<h3>Liebe Athleten, willkommen zurück nach Goofy19-Pause</h3>
-			<img src={fatPlayer} alt="fat players" width="400" />
+			<Header datatransport={Headername} />
+			<h4>Athleten, willkommen zurück nach Goofy19-Pause</h4>
+
+			<Img src={fatPlayer} alt="fat players" width="100%"></Img>
 			<NavBox>
 				<Link to="/login">
-					<button name="Login">Log In</button>
-				</Link>
-				<Link to="/register">
-					<button name="Register">register</button>
+					<Button name="Login">Kick Off!</Button>
 				</Link>
 			</NavBox>
 		</div>
@@ -23,6 +25,11 @@ const NavBox = styled.nav`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	padding: 20px;
+	padding: 5px;
 	margin: 0;
+`;
+
+const Img = styled.img`
+	margin-top: 35px;
+	margin-bottom: 35px;
 `;

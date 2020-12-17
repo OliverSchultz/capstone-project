@@ -1,3 +1,4 @@
+import NavBar from "./Navigation.js";
 import { useEffect, useState } from "react";
 import PlayerForm from "./PlayerForm";
 import Header from "./Header";
@@ -8,7 +9,8 @@ import PlayerCount from "./PlayerCount";
 import styled from "styled-components/macro";
 
 export default function JoinNextMatch() {
-	let pageHeader = "Anmeldung für den: ";
+	let pageHeader = "Anmeldung für: ";
+
 	// Der nächste Freitag
 	const upcomingMatchday = upcomingMatchdayToISOString();
 
@@ -48,7 +50,7 @@ export default function JoinNextMatch() {
 		return (
 			<>
 				<form>
-					<label>
+					<Label theme="colorNo">
 						<input
 							type="radio"
 							value="no"
@@ -56,10 +58,10 @@ export default function JoinNextMatch() {
 							onChange={handleChange}
 							checked={player.participate === "no"}
 						></input>
-						ich fahre lieber nackt U-Bahn
-					</label>
+						leider nein
+					</Label>
 
-					<label>
+					<Label theme="colorMaybe">
 						<input
 							type="radio"
 							value="maybe"
@@ -68,9 +70,9 @@ export default function JoinNextMatch() {
 							checked={player.participate === "maybe"}
 						></input>
 						unklar
-					</label>
+					</Label>
 
-					<label>
+					<Label theme="colorYes">
 						<input
 							type="radio"
 							value="yes"
@@ -79,7 +81,7 @@ export default function JoinNextMatch() {
 							checked={player.participate === "yes"}
 						></input>
 						bin dabei!
-					</label>
+					</Label>
 				</form>
 			</>
 		);
@@ -87,17 +89,17 @@ export default function JoinNextMatch() {
 
 	return (
 		<>
-			<div>
-				<Header datatransport={pageHeader} />
+			<NavBar />
+			<Header datatransport={pageHeader} matchDay={UpcomingMatchday} />
+			<Section>
 				<UpcomingMatchday />
-			</div>
 
-			<PlayerForm onSubmit={addParticipant} />
+				<PlayerForm onSubmit={addParticipant} />
 
-			<PlayerCount
-				numberOfParticipants={calculatePlayerAttendance(participants)}
-			/>
-
+				<PlayerCount
+					numberOfParticipants={calculatePlayerAttendance(participants)}
+				/>
+			</Section>
 			<ul>
 				{participants.map((participant, index) => {
 					return (
@@ -116,4 +118,36 @@ export default function JoinNextMatch() {
 
 const Li = styled.li`
 	list-style-type: none;
+	h4 {
+		padding-bottom: 10px;
+	}
+`;
+const Section = styled.section`
+	align-content: space-between;
+	display: flex;
+	flex-direction: column;
+	height: 300px;
+	justify-content: space-between;
+`;
+const theme = {
+	colorNo: {
+		default: "red",
+		hover: "",
+	},
+	colorMaybe: {
+		default: "gray",
+		hover: "",
+	},
+	colorYes: {
+		default: "green",
+		hover: "",
+	},
+};
+
+const Label = styled.label`
+	background-color: ${(props) => theme[props.theme]};
+	border-radius: 5px;
+	&:hover {
+		background-color: ${(props) => theme[props.theme].hover};
+	}
 `;

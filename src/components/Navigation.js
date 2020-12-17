@@ -1,30 +1,23 @@
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 
-export default function Navigation() {
+export default function NavBar() {
 	return (
 		<>
 			<StyledNavigation>
 				<ul>
-					<Link to="/home">
-						<li>Home</li>
-					</Link>
-					<Link to="/login">
-						<li>Login New</li>
-					</Link>
-					<Link to="/welcomeLogin">
-						<li>Login</li>
-					</Link>
-					<Link to="/joinNextMatch">
-						<li>next match</li>
-					</Link>
-
-					<Link to="/beer">
-						<li>Beer</li>
-					</Link>
-					<Link to="/chooseColour">
-						<li>Trikotwahl</li>
-					</Link>
+					<li>
+						<Link to="/home">Home</Link>
+					</li>
+					<li>
+						<Link to="/joinNextMatch">Anmelden</Link>
+					</li>
+					<li>
+						<Link to="/beer">Bier</Link>
+					</li>
+					<li>
+						<Link to="/chooseColour">Trikotwahl</Link>
+					</li>
 				</ul>
 			</StyledNavigation>
 		</>
@@ -32,20 +25,24 @@ export default function Navigation() {
 }
 const StyledNavigation = styled.nav`
 	bottom: 0px;
-	padding: 1em;
+	padding: 20px 20px;
 
 	ul {
-		margin: 0;
-		padding: 0;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		list-style-type: none;
+		margin: 0;
+		padding: 0;
 	}
 
 	li {
-		background-color: whitesmoke;
-		padding: 4px;
+		margin: 0;
+		padding: 0.5em;
+		box-shadow: 4px 4px 10px hsla(0, 0%, 0%, 0.3);
 		border-radius: 5px;
+	}
+	a {
+		text-decoration: none;
 	}
 `;

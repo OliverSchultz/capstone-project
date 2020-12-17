@@ -2,8 +2,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import GlobalStyle from "../styles/GlobalStyles";
 
-import Navigation from "./Navigation";
-import WelcomeLogin from "./WelcomeLogin";
 import JoinNextMatch from "./JoinNextMatch";
 import Login from "./Login";
 
@@ -17,11 +15,9 @@ export default function App() {
 			<Router>
 				<div>
 					<GlobalStyle />
-					<Navigation />
+
 					<Switch>
-						<Route path="/home" component={Home} />
-						<Route path="/login" component={Login} />
-						<Route path="/welcomeLogin" component={WelcomeLogin} />
+						<Route exact path="/home" component={Home} />
 						<Route path="/beer">
 							<Beer icon="🍺" />
 						</Route>

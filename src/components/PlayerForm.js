@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Button from "./Button";
+import styled from "styled-components/macro";
 
 export default function PlayerForm({ onSubmit }) {
 	const [player, setPlayer] = useState("");
@@ -29,11 +31,21 @@ export default function PlayerForm({ onSubmit }) {
 	return (
 		<>
 			<p>Bitte trag dich für den nächsten Termin hier ein:</p>
-			<form onSubmit={onFormSubmit}>
+			<Form onSubmit={onFormSubmit}>
 				{/*hier kommt das onSubmit aus der function in Zeile 3*/}
-				<input name="player" value={player} onChange={onPlayerChange} />
-				<button type="submit">Speichern</button>
-			</form>
+				<Input name="player" value={player} onChange={onPlayerChange}></Input>
+				<Button name="Speichern" />
+			</Form>
 		</>
 	);
 }
+const Form = styled.form`
+	align-items: center;
+	justify-content: space-between;
+	height: 80px;
+	display: flex;
+	flex-direction: column;
+`;
+const Input = styled.input`
+	padding: 5px 30px;
+`;

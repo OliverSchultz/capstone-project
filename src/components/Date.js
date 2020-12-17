@@ -6,7 +6,7 @@ export default function UpcomingMatchday() {
 	const year = upcomingFriday.getFullYear();
 	const matchday = `Freitag, ${day}.${month}.${year}`;
 
-	return <h2>{matchday}</h2>;
+	return <h3>{matchday}</h3>;
 }
 
 export function calculateUpcomingMatchday() {

@@ -2,29 +2,27 @@ import { CompactPicker } from "react-color";
 import { useState } from "react";
 import { upcomingMatchdayToISOString } from "./Date";
 import loadLocally from "./lib/loadLocally";
+import Button from "./Button";
 
 export default function ColorPicker({ color, updateColor }) {
 	const [showCirclePicker, setShowCirclePicker] = useState(false);
 
 	return (
 		<>
-			<button
+			<Button
+				name="Wähle eine Farbe"
 				onClick={() =>
 					setShowCirclePicker((showCirclePicker) => !showCirclePicker)
 				}
 			>
 				{showCirclePicker ? "close picker" : "choose a color"}
-			</button>
+			</Button>
 			{showCirclePicker && (
 				<CompactPicker
 					color={color}
 					onChange={(updatedColor) => updateColor(updatedColor.hex)}
 				/>
 			)}
-			<p>
-				Du hast <span style={{ backgroundColor: color }}>{color}</span>{" "}
-				ausgewählt
-			</p>
 		</>
 	);
 }
