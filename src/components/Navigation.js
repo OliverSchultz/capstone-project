@@ -13,10 +13,10 @@ export default function NavBar() {
 						<Link to="/joinNextMatch">Anmelden</Link>
 					</li>
 					<li>
-						<Link to="/beer">Bier</Link>
+						<Link to="/chooseColour">Trikotwahl</Link>
 					</li>
 					<li>
-						<Link to="/chooseColour">Trikotwahl</Link>
+						<Link to="/beer">Bier</Link>
 					</li>
 				</ul>
 			</StyledNavigation>
@@ -25,7 +25,8 @@ export default function NavBar() {
 }
 const StyledNavigation = styled.nav`
 	bottom: 0px;
-	padding: 20px 20px;
+	margin-left: 2em;
+	margin-right: 2em;
 
 	ul {
 		display: flex;

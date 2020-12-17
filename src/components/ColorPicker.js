@@ -10,7 +10,7 @@ export default function ColorPicker({ color, updateColor }) {
 	return (
 		<>
 			<Button
-				name="Wähle eine Farbe"
+				name="Farbwahl"
 				onClick={() =>
 					setShowCirclePicker((showCirclePicker) => !showCirclePicker)
 				}

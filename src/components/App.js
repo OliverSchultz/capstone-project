@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GlobalStyle from "../styles/GlobalStyles";
 
 import JoinNextMatch from "./JoinNextMatch";
-import Login from "./Login";
-
 import Home from "../Pages/Home";
 import ChooseColor from "../Pages/ChooseColour";
 import Beer from "../Pages/Beer";
