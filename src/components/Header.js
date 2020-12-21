@@ -4,7 +4,7 @@ export default function Header({ datatransport, matchDay }) {
 	return (
 		<HeaderStyled>
 			<h3>{datatransport}</h3>
-			{matchDay()}
+			{matchDay && matchDay()}
 		</HeaderStyled>
 	);
 }

@@ -46,7 +46,7 @@ export default function Beer() {
 				{playersAttending.map((player, index) => {
 					return (
 						<li key={index}>
-							<label htmlFor="beer">{player.player} </label>
+							<label htmlFor="beer">{player.player}</label>
 							<input type="checkbox" width="500" id="beer" />
 							<BeerGlas />
 						</li>
@@ -56,6 +56,7 @@ export default function Beer() {
 		</>
 	);
 }
+
 const Ol = styled.ol`
 	display: flex;
 	flex-direction: column;
@@ -70,6 +71,17 @@ const Ol = styled.ol`
 		grid-template-columns: 2fr 1fr 1fr;
 		grid-gap: 0.5em;
 		align-items: center;
+	}
+	input {
+		appearance: none;
+		background-color: #2e9ddb;
+		border-radius: 5px;
+		cursor: pointer;
+		height: 22px;
+		width: 22px;
+	}
+	label {
+		font-weight: bold;
 	}
 `;
 const BeerGlas = styled(BeerIcon)`

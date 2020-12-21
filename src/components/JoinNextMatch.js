@@ -91,30 +91,37 @@ export default function JoinNextMatch() {
 		<>
 			<NavBar />
 			<Header datatransport={pageHeader} matchDay={UpcomingMatchday} />
-			<Section>
-				<UpcomingMatchday />
+			<Div>
+				<Section>
+					<PlayerForm onSubmit={addParticipant} />
 
-				<PlayerForm onSubmit={addParticipant} />
-
-				<PlayerCount
-					numberOfParticipants={calculatePlayerAttendance(participants)}
-				/>
-			</Section>
-			<ul>
-				{participants.map((participant, index) => {
-					return (
-						<Li key={index}>
-							<h4>{participant.player}</h4>
-							<div>
-								<AddRadioButton playerNumber={index} player={participant} />
-							</div>
-						</Li>
-					);
-				})}
-			</ul>
+					<PlayerCount
+						numberOfParticipants={calculatePlayerAttendance(participants)}
+					/>
+				</Section>
+				<Ul>
+					{participants.map((participant, index) => {
+						return (
+							<Li key={index}>
+								<h4>{participant.player}</h4>
+								<div>
+									<AddRadioButton playerNumber={index} player={participant} />
+								</div>
+							</Li>
+						);
+					})}
+				</Ul>
+			</Div>
 		</>
 	);
 }
+
+const Div = styled.div`
+	margin: 2em;
+	padding: 4.5em 2em 3.6em;
+	box-shadow: 4px 4px 18px hsla(0, 0%, 0%, 0.3);
+	border-radius: 20px;
+`;
 
 const Li = styled.li`
 	list-style-type: none;
@@ -123,11 +130,11 @@ const Li = styled.li`
 	}
 `;
 const Section = styled.section`
-	align-content: space-between;
+	align-content: space-evenly;
 	display: flex;
 	flex-direction: column;
 	height: 300px;
-	justify-content: space-between;
+	justify-content: space-evenly;
 `;
 const theme = {
 	colorNo: {
@@ -149,5 +156,20 @@ const Label = styled.label`
 	border-radius: 5px;
 	&:hover {
 		background-color: ${(props) => theme[props.theme].hover};
+	}
+`;
+const Ul = styled.ul`
+	padding: 0;
+	li {
+		padding-bottom: 1em;
+	}
+	form {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	input {
+		margin-right: 0.3em;
+		padding-left: 0.3em;
 	}
 `;

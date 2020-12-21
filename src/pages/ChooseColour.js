@@ -10,6 +10,7 @@ import styled from "styled-components";
 import { ReactComponent as JerseyIcon } from "../pictures/football-jersey.svg";
 import NavBar from "../components/Navigation";
 import generateTeams from "../components/TeamGenerator";
+
 export default function ChooseColor() {
 	const upcomingMatchday = upcomingMatchdayToISOString();
 	const [participants, setParticipants] = useState([]);
@@ -22,16 +23,13 @@ export default function ChooseColor() {
 			)
 		);
 	}, []);
-	useEffect(() => {
-		const [teamA, teamB] = generateTeams(participants);
-		setTeamA(teamA);
-		setTeamB(teamB);
-	}, [participants]);
+
 	useEffect(() => {
 		saveLocally(upcomingMatchday, participants);
 	}, [participants, upcomingMatchday]);
 	const pageHeader = "Wähle deine Trikotfarbe für das Match am ";
 	function saveJerseyColorToParticipant(playerNumber, color) {
+		console.log(participants);
 		const participantsUpdated = participants.map((participant, index) => {
 			if (playerNumber === index) {
 				participant.color = color;
@@ -39,7 +37,13 @@ export default function ChooseColor() {
 			return participant;
 		});
 		setParticipants(participantsUpdated);
+		console.log(participants);
 	}
+	useEffect(() => {
+		const [teamA, teamB] = generateTeams(participants);
+		setTeamA(teamA);
+		setTeamB(teamB);
+	}, [participants]);
 	return (
 		<>
 			<NavBar />
@@ -49,8 +53,8 @@ export default function ChooseColor() {
 					const playerColor = player.color !== "" ? player.color : "#ffffff";
 					return (
 						<li key={index}>
-							<Jersey color={playerColor} />
 							{player.player}
+							<Jersey color={playerColor} />
 							<ColorPicker
 								color={playerColor}
 								updateColor={(color) =>
@@ -63,18 +67,21 @@ export default function ChooseColor() {
 			</Ul>
 			<Section>
 				<h3>Zufällige Teams</h3>
-				<ol>
-					<h4>Team A</h4>
-					{teamA.map((teamMember, index) => (
-						<li>{teamMember.player}</li>
-					))}
-				</ol>
-				<ol>
-					<h4>Team B</h4>
-					{teamB.map((teamMember, index) => (
-						<li>{teamMember.player}</li>
-					))}
-				</ol>
+				<div>
+					<ul>
+						<h4>Team A</h4>
+						{teamA.map((teamMember, index) => (
+							<li>{teamMember.player}</li>
+						))}
+					</ul>
+
+					<ul>
+						<h4>Team B</h4>
+						{teamB.map((teamMember, index) => (
+							<li>{teamMember.player}</li>
+						))}
+					</ul>
+				</div>
 			</Section>
 		</>
 	);
@@ -109,4 +116,21 @@ const Section = styled.section`
 	padding: 4.5em 2em 3.6em;
 	box-shadow: 4px 4px 18px hsla(0, 0%, 0%, 0.3);
 	border-radius: 20px;
+	h3 {
+		padding-bottom: 15px;
+	}
+	div {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		justify-items: center;
+		justify-content: center;
+		ul {
+			padding-right: 30px;
+			list-style-type: none;
+		}
+		h4 {
+			padding-bottom: 10px;
+		}
+	}
 `;
