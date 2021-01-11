@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import Button from "../components/Button";
 
 export default function Home() {
-	const Headername = "Frorga: die Freitagsfusi-Orga-App";
+	const Headername = "Grosny: die Freitagsfusi-Orga-App";
 	return (
 		<div>
 			<Header datatransport={Headername} />
@@ -13,8 +13,8 @@ export default function Home() {
 
 			<Img src={fatPlayer} alt="fat players" width="100%"></Img>
 			<NavBox>
-				<Link to="/login">
-					<Button name="Login">Kick Off!</Button>
+				<Link to="/JoinNextMatch">
+					<Button name="Anmelden">Kick Off!</Button>
 				</Link>
 			</NavBox>
 		</div>

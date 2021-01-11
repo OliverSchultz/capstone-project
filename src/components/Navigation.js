@@ -7,7 +7,7 @@ export default function NavBar() {
 			<StyledNavigation>
 				<ul>
 					<li>
-						<Link to="/home">Home</Link>
+						<Link to="/">Home</Link>
 					</li>
 					<li>
 						<Link to="/joinNextMatch">Anmelden</Link>
@@ -45,5 +45,8 @@ const StyledNavigation = styled.nav`
 	}
 	a {
 		text-decoration: none;
+	}
+	a:visited {
+		color: black;
 	}
 `;

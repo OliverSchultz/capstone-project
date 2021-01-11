@@ -29,7 +29,6 @@ export default function ChooseColor() {
 	}, [participants, upcomingMatchday]);
 	const pageHeader = "Wähle deine Trikotfarbe für das Match am ";
 	function saveJerseyColorToParticipant(playerNumber, color) {
-		console.log(participants);
 		const participantsUpdated = participants.map((participant, index) => {
 			if (playerNumber === index) {
 				participant.color = color;
@@ -37,13 +36,16 @@ export default function ChooseColor() {
 			return participant;
 		});
 		setParticipants(participantsUpdated);
-		console.log(participants);
 	}
+
 	useEffect(() => {
-		const [teamA, teamB] = generateTeams(participants);
-		setTeamA(teamA);
-		setTeamB(teamB);
+		if (participants.length >= 6) {
+			const [teamA, teamB] = generateTeams(participants);
+			setTeamA(teamA);
+			setTeamB(teamB);
+		}
 	}, [participants]);
+
 	return (
 		<>
 			<NavBar />

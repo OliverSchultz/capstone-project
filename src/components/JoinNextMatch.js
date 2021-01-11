@@ -49,7 +49,7 @@ export default function JoinNextMatch() {
 		};
 		return (
 			<>
-				<form>
+				<form autoComplete="off">
 					<Label theme="colorNo">
 						<input
 							type="radio"
@@ -57,6 +57,7 @@ export default function JoinNextMatch() {
 							name={`radiobutton[${playerNumber}]`}
 							onChange={handleChange}
 							checked={player.participate === "no"}
+							required
 						></input>
 						leider nein
 					</Label>

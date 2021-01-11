@@ -17,6 +17,9 @@ export default function Beer() {
 		loadLocally(upcomingMatchday) || []
 	);
 
+	const [bringsBeer, setBringsBeer] = useState(false);
+	console.log(bringsBeer);
+
 	useEffect(() => {
 		saveLocally(upcomingMatchday, participants);
 	}, [participants, upcomingMatchday]);
@@ -47,7 +50,15 @@ export default function Beer() {
 					return (
 						<li key={index}>
 							<label htmlFor="beer">{player.player}</label>
-							<input type="checkbox" width="500" id="beer" />
+							<ToggleButton bringsBring={bringsBeer}>
+								<input
+									type="checkbox"
+									width="500"
+									id="beer"
+									onClick={() => console.log("click")}
+								/>
+								<span></span>
+							</ToggleButton>
 							<BeerGlas />
 						</li>
 					);
@@ -56,6 +67,46 @@ export default function Beer() {
 		</>
 	);
 }
+
+const ToggleButton = styled.div`
+	position: relative;
+	width: 70px;
+	height: 34px;
+
+	input {
+		opacity: 0;
+	}
+	span {
+		position: absolute;
+		cursor: pointer;
+		border-radius: 34px;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: white;
+		transition: 0.4s;
+	}
+	span:before {
+		border-radius: 50px;
+		background-color: ${(props) => (props.bringsBeer ? "#76a1b8" : "hotpink")};
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		transition: 0.4s;
+		transform: ${(props) => (props.bringsBeer ? "translateX(35px)" : "")};
+	}
+
+	input:checked + span {
+		background-color: blue;
+	}
+	input:checked + span:before {
+		transform: translateX(35px);
+	}
+`;
 
 const Ol = styled.ol`
 	display: flex;
@@ -67,18 +118,13 @@ const Ol = styled.ol`
 	box-shadow: 4px 4px 18px hsla(0, 0%, 0%, 0.3);
 	border-radius: 20px;
 	li {
+		align-items: center;
 		display: grid;
+		flex: 1;
 		grid-template-columns: 2fr 1fr 1fr;
 		grid-gap: 0.5em;
-		align-items: center;
-	}
-	input {
-		appearance: none;
-		background-color: #2e9ddb;
-		border-radius: 5px;
-		cursor: pointer;
-		height: 22px;
-		width: 22px;
+
+		padding-bottom: 5px;
 	}
 	label {
 		font-weight: bold;

@@ -20,7 +20,7 @@ export default createGlobalStyle`
     font-size: 112.5%;
     margin: 18px 0px 0px 0px;
   
-    height: 300vw;
+    height: 180vh;
     padding:0;
     text-align: center;
       h3{

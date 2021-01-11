@@ -3,8 +3,7 @@ function generateTeams(players) {
 	const teamB = [];
 
 	const shuffledParticipants = (players) =>
-		players.sort(() => Math.random() - 0.5);
-
+		[...players].sort(() => Math.random() - 0.5);
 	shuffledParticipants(players).forEach((player, index) =>
 		index % 2 ? teamA.push(player) : teamB.push(player)
 	);
